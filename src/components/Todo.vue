@@ -57,26 +57,27 @@ export default {
     border-radius: 25px;
     background: #e0e0e0;
     position: relative;
-    width: 22px;
+    width: 1.3em;
     top: 0;
     left: 0;
     height: 1.3em;
     width: 1.3em;
+    margin-right: 15px;
 }
 
-.todo-title input:checked .checkmark {
-    background-color: #000;
+.todo-title input:checked ~ .checkmark {
+    background-color: rgb(74, 230, 144);
     border-radius: 25px;
     transition: 0.15s;
 }
 
-.checkmark::after {
+.checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
 
-.todo-title input:checked .checkmark::after{
+.todo-title input:checked ~ .checkmark::after{
     display: block;
 }
 
