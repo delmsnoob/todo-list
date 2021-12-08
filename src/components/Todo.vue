@@ -2,10 +2,8 @@
     <div class="todo-container">
         <div class="todo-item" v-bind:class="{'is--completed': todo.completed}">
             <label class="todo-title">
-                
-                <div class="checkmark">
-                    <input type="checkbox" v-on:change="markComplete">
-                </div>
+                <input type="checkbox" v-on:change="markComplete">
+                <div class="checkmark"></div>                
                 <h3>{{ todo.title }}</h3>
             </label>
         </div>
@@ -50,12 +48,26 @@ export default {
     padding-right: 20px;
 }
 
+.todo-title input {
+    position: absolute;
+    opacity: 0;
+}
+
 .checkmark {
-    border-radius: 100px;
+    border-radius: 25px;
     background: #e0e0e0;
     position: relative;
-    margin-right: 20px;
     width: 22px;
+    top: 0;
+    left: 0;
+    height: 1.3em;
+    width: 1.3em;
+}
+
+.todo-title input:checked .checkmark {
+    background-color: #000;
+    border-radius: 25px;
+    transition: 0.15s;
 }
 
 .checkmark::after {
@@ -64,7 +76,21 @@ export default {
     display: none;
 }
 
-input[type="checkbox"] {
+.todo-title input:checked .checkmark::after{
+    display: block;
+}
+
+.todo-title .checkmark::after {
+    left: 0.45em;
+ top: 0.25em;
+ width: 0.25em;
+ height: 0.5em;
+ border: solid white;
+ border-width: 0 0.15em 0.15em 0;
+ transform: rotate(45deg);
+}
+
+/* input[type="checkbox"] {
     transform: scale(1.4);
     width: 10px;
     margin: 0;
@@ -77,12 +103,12 @@ input[type="checkbox"] {
 input[type="checkbox"]:checked {
     background-color: #000;
  border-radius: 25px;
- /* transition: 0.15s; */
+ transition: 0.15s;
 }
 
 input[type="checkbox"]::after {
     display: block;
-}
+} */
 
 .action-container {
     display: inline;
@@ -94,3 +120,4 @@ input[type="checkbox"]::after {
     padding-right: 10px;
 }
 </style>
+https://cssbuttons.io/detail/martinval9/wise-elephant-23
