@@ -1,15 +1,18 @@
 <template>
-    <div class="todo-item" v-bind:class="{'is--completed': todo.completed}">
-        <label class="todo-title">
-            <input type="checkbox" name="todo-checkbox" class="item--checkbox" v-on:change="markComplete">
-            <h3>
-                {{ todo.title }}
-                <div class="todo-item__delete--icon">
-                    <i class="delete-icon far fa-trash-alt"></i>
+    <div class="todo-container">
+        <div class="todo-item" v-bind:class="{'is--completed': todo.completed}">
+            <label class="todo-title">
+                
+                <div class="checkmark">
+                    <input type="checkbox" v-on:change="markComplete">
                 </div>
-            </h3>
-        </label>
-        
+                <h3>{{ todo.title }}</h3>
+            </label>
+        </div>
+        <div class="action-container">
+            <!-- <i class="action far fa-edit"></i> -->
+            <i class="action far fa-trash-alt"></i>
+        </div>
     </div>
 </template>
 
@@ -26,12 +29,15 @@ export default {
 </script>
 
 <style scoped>
+.todo-container {
+    display: flex;
+    align-items: center;
+}
 .todo-item {
-    margin: 30px auto;
-    box-shadow: .5px 1px 5px rgba(70, 49, 49, 0.57);
-    padding: 20px;
-    border-radius: 5px;
-
+    padding: 1px 8px 1px 60px;
+    display: flex;
+    align-items: center;
+    width: 70%;
 }
 
 .is--completed {
@@ -40,26 +46,51 @@ export default {
 
 .todo-title {
     display: flex;
+    align-items: center;
+    padding-right: 20px;
 }
 
-.item--checkbox {
-    /* height: 20px;
-    width: 25px; */
-    transform: scale(1.8);
-    /* margin: 10px; */
+.checkmark {
+    border-radius: 100px;
+    background: #e0e0e0;
+    position: relative;
+    margin-right: 20px;
+    width: 22px;
+}
+
+.checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
 }
 
 input[type="checkbox"] {
-    margin-right: 20px;
+    transform: scale(1.4);
+    width: 10px;
+    margin: 0;
+    margin-right: 12px;
+    margin-left: 6px;
+    margin-bottom: 5px;
+    opacity: 1;
 }
 
-.todo-item__delete--icon {
+input[type="checkbox"]:checked {
+    background-color: #000;
+ border-radius: 25px;
+ /* transition: 0.15s; */
+}
+
+input[type="checkbox"]::after {
+    display: block;
+}
+
+.action-container {
+    display: inline;
     cursor: pointer;
     font-size: 20px;
-    /* padding: 20px; */
-    display: inline;
-    float: right;
-    justify-content: right;
-    
+}
+
+.action {
+    padding-right: 10px;
 }
 </style>

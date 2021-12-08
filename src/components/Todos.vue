@@ -21,8 +21,6 @@ export default {
 <style scoped>
 .todos {
   color: rgb(61, 60, 60);
-  background: #e6cd69;
-  padding: 1px 20px 10px 20px;
-  box-shadow: .5px 1px 5px rgba(0, 0, 0, 0.57);
+  padding: 20px 0 20px 0;
 }
 </style>

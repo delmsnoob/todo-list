@@ -1,7 +1,12 @@
 <template>
   <div class="container">
-    <Header title="Todo List"/>
-    <Todos v-bind:todos="todos"/>
+    <div class="container__header">
+      <Header title="Todo List"/>
+      <div class="container__body">
+        <Todos v-bind:todos="todos"/>
+      </div>
+    </div>
+    
   </div>
 </template>
 
@@ -49,19 +54,33 @@ export default {
 </script>
 
 <style>
-* {
+
+body {
   user-select: none;
+  background: #E3E9FF;
+  font-family: 'Open Sans';
 }
 
 .container {
-  font-family: 'Open Sans';
-  max-width: 500px;
-  margin: 30px auto;
-  overflow: auto;
-  min-height: 300px;
-  border: 1px solid steelblue;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.57);
-  padding: 30px;
-  border-radius: 5px;
+  display: grid;
+  height: 90vh;
+  justify-content: center;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container__header {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container__body {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  background: #fff;
+  justify-content: space-between;
+  align-items: center;  
 }
 </style>

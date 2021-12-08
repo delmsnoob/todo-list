@@ -1,8 +1,10 @@
 <template>
-    <header class="nav">
-      <i class="fas fa-bars"></i>
+  <header>
+    <i class="fas fa-bars"></i>    
+    <div class="nav-title">
       <h2>{{ title }}</h2>
-    </header>
+    </div>
+  </header>
 </template>
 
 <script>
@@ -15,32 +17,33 @@ export default {
 </script>
 
 <style scoped>
-header {
+h2 {
+  color: #e8eeef;
+  font-size: 1.5em;
+  justify-content: center;
+  align-items: center;
   display: flex;
 }
 
-h2 {
-  font-family: 'Open Sans';
-  color: rgb(61, 60, 60);
-  font-size: 20px;
-  margin-top: 15px;
+header {
+  display: flex;
+  width: 550px;
+  height: 70px;
+  background: #AF7EEB;
+  align-items: center;
 }
 
-.nav {
-  background: #e6cd69;
-  margin-bottom: 25px;
-  /* -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57); */
-  /* -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57); */
-  box-shadow: .5px 1px 5px rgba(70, 49, 49, 0.57);
-  padding: 5px;
-  border-radius: 5px;
+.nav-title {
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  margin-right: 40px;
 }
 
 .fas {
-  color: rgb(61, 60, 60);
-  font-size: 20px;
-  margin: 20px;
+  color: #e8eeef;
+  font-size: 25px;
+  margin-left: 30px;
   cursor: pointer;
-  transition: transform .3s;
 }
 </style>
