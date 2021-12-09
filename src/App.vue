@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <div class="container__header">
-      <Header title="Todo List"/>
+      <Header title="Website todo"/>
       <div class="container__body">
-        <Todos v-bind:todos="todos"/>
+        <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo" v-on:add-todo="addTodo"/>
       </div>
     </div>
     
@@ -25,29 +25,37 @@ export default {
       todos: [
         {
           id: 1,
-          title: "Doctors Appointment",
+          title: "Styleguide creation",
           schedule: "March",
           completed: null
         },
         {
           id: 2,
-          title: "Dentist Appointment",
+          title: "Send wireframes",
           schedule: "March",
           completed: null
         },
         {
           id: 3,
-          title: "Food shopping",
+          title: "Readability About page",
           schedule: "March",
           completed: null
         },
         {
           id: 4,
-          title: "Pick up laundry",
+          title: "Check color contrast",
           schedule: "March",
           completed: null
         }
       ]
+    }
+  },
+  methods: {
+    deleteTodo(id) {
+      this.todos = this.todos.filter(todo => todo.id !== id)
+    },
+    addTodo(id) {
+      console.log(asdasd)
     }
   }
 }
@@ -80,7 +88,8 @@ body {
   width: 100%;
   margin-top: 20px;
   background: #fff;
-  justify-content: space-between;
-  align-items: center;  
+  /* justify-content: space-between; */
+  align-items: center;
+  min-height: 105px;
 }
 </style>

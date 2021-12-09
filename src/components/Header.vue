@@ -19,10 +19,10 @@ export default {
 <style scoped>
 h2 {
   color: #e8eeef;
-  font-size: 1.5em;
-  justify-content: center;
+  font-size: 1.6em;
+  /* justify-content: center;
   align-items: center;
-  display: flex;
+  display: flex; */
 }
 
 header {
@@ -37,7 +37,7 @@ header {
   justify-content: center;
   display: flex;
   width: 100%;
-  margin-right: 40px;
+  margin-right: 50px;
 }
 
 .fas {

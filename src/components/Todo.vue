@@ -8,15 +8,14 @@
             </label>
         </div>
         <div class="action-container">
-            <!-- <i class="action far fa-edit"></i> -->
-            <i class="action far fa-trash-alt"></i>
+            <i @click="$emit('del-todo', todo.id)" class="action far fa-trash-alt" v-bind:class="{'todo-completed': todo.completed}"></i>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "TodoItem",
+    name: "Todo",
     props: ["todo"],
     methods: {
         markComplete() {
@@ -32,10 +31,15 @@ export default {
     align-items: center;
 }
 .todo-item {
-    padding: 1px 8px 1px 60px;
-    display: flex;
-    align-items: center;
+    padding: 0 8px 0 60px;
     width: 70%;
+}
+
+h3 {
+    color: rgb(95, 92, 92);
+    font-weight: bolder;
+    font-size: 1.3em;
+    cursor: pointer;
 }
 
 .is--completed {
@@ -45,11 +49,11 @@ export default {
 .todo-title {
     display: flex;
     align-items: center;
-    padding-right: 20px;
 }
 
+/* hide default input checkbox */
 .todo-title input {
-    position: absolute;
+    position: relative;
     opacity: 0;
 }
 
@@ -60,15 +64,17 @@ export default {
     width: 1.3em;
     top: 0;
     left: 0;
-    height: 1.3em;
-    width: 1.3em;
-    margin-right: 15px;
+    height: 1em;
+    width: 1em;
+    margin-right: 25px;
+    border: 2px solid #9c7ac5;
 }
 
 .todo-title input:checked ~ .checkmark {
-    background-color: rgb(74, 230, 144);
+    background: #AF7EEB;
     border-radius: 25px;
-    transition: 0.15s;
+    transition: 0.2s;
+    border: 2px solid #524d4d;
 }
 
 .checkmark:after {
@@ -81,44 +87,29 @@ export default {
     display: block;
 }
 
-.todo-title .checkmark::after {
-    left: 0.45em;
- top: 0.25em;
- width: 0.25em;
- height: 0.5em;
- border: solid white;
- border-width: 0 0.15em 0.15em 0;
- transform: rotate(45deg);
-}
-
-/* input[type="checkbox"] {
-    transform: scale(1.4);
-    width: 10px;
-    margin: 0;
-    margin-right: 12px;
-    margin-left: 6px;
-    margin-bottom: 5px;
-    opacity: 1;
-}
-
-input[type="checkbox"]:checked {
-    background-color: #000;
- border-radius: 25px;
- transition: 0.15s;
-}
-
-input[type="checkbox"]::after {
-    display: block;
+/* adds checkmark after title */
+/* .todo-title .checkmark::after {
+    left: 0.32em;
+    top: 0.15em;
+    width: 0.25em;
+    height: 0.5em;
+    border: solid white;
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(45deg);
 } */
 
 .action-container {
-    display: inline;
-    cursor: pointer;
     font-size: 20px;
 }
 
 .action {
     padding-right: 10px;
+    display: block;
+    cursor: pointer;
+}
+
+.todo-completed {
+    display: block;
+    transition: .2s;
 }
 </style>
-https://cssbuttons.io/detail/martinval9/wise-elephant-23
