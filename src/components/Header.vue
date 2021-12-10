@@ -18,7 +18,7 @@ export default {
 
 <style scoped>
 h2 {
-  color: #e8eeef;
+  color: #fff;
   font-size: 1.6em;
   /* justify-content: center;
   align-items: center;
@@ -41,7 +41,7 @@ header {
 }
 
 .fas {
-  color: #e8eeef;
+  color: #fff;
   font-size: 25px;
   margin-left: 30px;
   cursor: pointer;

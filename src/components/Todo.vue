@@ -4,7 +4,7 @@
             <label class="todo-title">
                 <input type="checkbox" v-on:change="markComplete">
                 <div class="checkmark"></div>                
-                <h3>{{ todo.title }}</h3>
+                {{ todo.title }}
             </label>
         </div>
         <div class="action-container">
@@ -35,13 +35,6 @@ export default {
     width: 70%;
 }
 
-h3 {
-    color: rgb(95, 92, 92);
-    font-weight: bolder;
-    font-size: 1.3em;
-    cursor: pointer;
-}
-
 .is--completed {
     text-decoration: line-through;
 }
@@ -49,6 +42,11 @@ h3 {
 .todo-title {
     display: flex;
     align-items: center;
+    color: rgb(95, 92, 92);
+    font-weight: bolder;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 20px 0 20px -5px;
 }
 
 /* hide default input checkbox */
@@ -104,7 +102,7 @@ h3 {
 
 .action {
     padding-right: 10px;
-    display: block;
+    display: none;
     cursor: pointer;
 }
 
