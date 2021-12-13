@@ -43,7 +43,7 @@ export default {
   display: flex;
   justify-content: center;    
   align-items: center;
-  padding: 50px 20px 0 20px;
+  margin-top: 20px;
 }
 
 .add__todo__form input[type="text"] {

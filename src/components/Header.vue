@@ -19,7 +19,7 @@ export default {
 <style scoped>
 h2 {
   color: #fff;
-  font-size: 1.6em;
+  font-size: 1.4em;
   /* justify-content: center;
   align-items: center;
   display: flex; */
@@ -27,7 +27,6 @@ h2 {
 
 header {
   display: flex;
-  width: 550px;
   height: 70px;
   background: #AF7EEB;
   align-items: center;

@@ -1,13 +1,13 @@
 <template>
-    <div>
+    <div class="todos__container">
+      <AddTodo />
       <div class="todos">
         <div v-bind:key="todo.id" v-for="todo in todos">
-          <Todo v-bind:todo="todo" v-on:del-todo="$emit('del-todo', todo.id)" />
+          <Todo v-bind:todo="todo" v-on:delete-todo="$emit('delete-todo', todo.id)" />
         </div>
       </div>
       <div class="btn-container">
-        <button class="btn add-task-btn"
-          @click="onClicl()">
+        <button class="btn add-task-btn" >
           <i class="add fas fa-plus"></i>
           New Task
         </button>
@@ -20,12 +20,18 @@ import Todo from './Todo'
 import AddTodo from './AddTodo'
 
 export default {
-    name: "Todos",
-    components: {
-      Todo,
-      AddTodo
-    },
-    props: ["todos"]
+  name: 'Todos',
+  components: {
+    Todo,
+    AddTodo
+  },
+  props: ["todos"],
+  methods: {
+    onSubmit(e) {
+      e.preventDefault()
+      return
+    }
+  }
 }
 </script>
 
@@ -34,6 +40,10 @@ export default {
   color: rgb(61, 60, 60);
   padding: 50px 0 50px 0;
   /* width: 100%; */
+}
+
+.todos--hide {
+  display: none;
 }
 
 .btn-container {

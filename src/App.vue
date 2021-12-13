@@ -1,24 +1,30 @@
 <template>
-  <div class="container">
-    <div class="container__header">
+  <main>
+    <div class="main__container">
       <Header title="Website todo"/>
-      <div class="container__body">
-        <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo" v-on:add-todo="addTodo"/>
+      <!-- <AddTodo /> -->
+      <div class="main__body">
+        <Todos
+          v-bind:todos="todos"
+          v-on:delete-todo="deleteTodo"
+          v-on:add-todo="addTodo"
+        />
       </div>
     </div>
-    
-  </div>
+  </main>
 </template>
 
 <script>
 import Header from './components/Header'
 import Todos from './components/Todos'
+import AddTodo from './components/AddTodo'
 
 export default {
   name: 'App',
   components: {
     Header,
     Todos,
+    AddTodo
   },
   data() {
     return {
@@ -26,25 +32,21 @@ export default {
         {
           id: 1,
           title: "Styleguide creation",
-          schedule: "March",
           completed: null
         },
         {
           id: 2,
           title: "Send wireframes",
-          schedule: "March",
           completed: null
         },
         {
           id: 3,
           title: "Readability About page",
-          schedule: "March",
           completed: null
         },
         {
           id: 4,
           title: "Check color contrast",
-          schedule: "March",
           completed: null
         }
       ]
@@ -52,7 +54,9 @@ export default {
   },
   methods: {
     deleteTodo(id) {
-      this.todos = this.todos.filter(todo => todo.id !== id)
+      if (confirm('Are you sure?')) {
+        this.todos = this.todos.filter(todo => todo.id !== id)
+      }
     },
     addTodo(id) {
       console.log(asdasd)
@@ -67,29 +71,25 @@ body {
   user-select: none;
   background: #E3E9FF;
   font-family: 'Open Sans';
+  margin: auto;
 }
 
-.container {
-  display: grid;
+main {
+  display: flex;
   height: 90vh;
   justify-content: center;
   align-items: center;
-  margin-right: auto;
-  margin-left: auto;
+  
 }
 
-.container__header {
-  margin-right: auto;
-  margin-left: auto;
+.main__container {
+  margin: 10px;
+  width: 500px;
 }
 
-.container__body {
-  display: block;
-  width: 100%;
+.main__body {
   margin-top: 20px;
   background: #fff;
-  /* justify-content: space-between; */
-  align-items: center;
   min-height: 105px;
 }
 </style>
