@@ -1,48 +1,48 @@
 <template>
   <header>
-    <i class="fas fa-bars"></i>    
-    <div class="nav-title">
-      <h2>{{ title }}</h2>
+    <i class="fas fa-bars"></i>
+    <div class="header__nav">
+      <h2>{{ text }}</h2>
     </div>
-  </header>
+  </header>    
 </template>
 
 <script>
 export default {
-    name: 'Header',
-    props: {
-        title: String,
-    },
+  name: 'Header',
+  props: {
+    text: String
+  }
 }
 </script>
 
 <style scoped>
-h2 {
-  color: #fff;
-  font-size: 1.4em;
-  /* justify-content: center;
-  align-items: center;
-  display: flex; */
-}
-
 header {
   display: flex;
-  height: 70px;
-  background: #AF7EEB;
+  /* justify-content: center; */
   align-items: center;
-}
-
-.nav-title {
-  justify-content: center;
-  display: flex;
-  width: 100%;
-  margin-right: 50px;
+  height: 70px;
+  background: #af7eeb;
 }
 
 .fas {
   color: #fff;
-  font-size: 25px;
-  margin-left: 30px;
+  font-size: 1.5em;
   cursor: pointer;
+  margin-left: 30px;
+  
+}
+
+.header__nav {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  margin-right: 40px;
+}
+
+h2 {
+  color: #fff;
+  font-size: 1.4em;
 }
 </style>

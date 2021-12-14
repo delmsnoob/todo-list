@@ -1,115 +1,75 @@
 <template>
-  <div class="todo-container">
-    <div class="todo-item" v-bind:class="{'is--completed': todo.completed}">
-      <label class="todo-title">
-        <input type="checkbox" v-on:change="markComplete">
-        <div class="checkmark"></div>                
-        {{ todo.title }}
-      </label>
+    <div class="todo__wrapper">
+      <div class="todo__item">
+        <label class="todo__title" v-bind:class="{'todo__item--check': todo.completed}">
+          <input type="checkbox" v-on:change="markTodo">
+          <div class="checkmark"></div>
+          {{ todo.title }}
+        </label>
+      </div>
+      <div class="deleteTodo__wrapper">
+        <i 
+          @click="$emit('delete-todo', todo.id)"
+          v-bind:class="{'todo__item--delete': todo.completed}"
+          class="delete__icon far fa-trash-alt"
+        >
+        </i>
+      </div>
     </div>
-    <div class="action-container">
-      <i @click="$emit('delete-todo', todo.id)" class="action far fa-trash-alt" v-bind:class="{'todo-completed': todo.completed}"></i>
-    </div>
-  </div>
 </template>
 
 <script>
 export default {
-  name: "Todo",
+  name: 'Todo',
   props: ["todo"],
   methods: {
-    markComplete() {
+    markTodo() {
       this.todo.completed = !this.todo.completed
     }
-  },
+  }
 }
 </script>
 
 <style scoped>
-.todo-container {
+.todo__wrapper {
   display: flex;
+  width: 100%;
   align-items: center;
-}
-.todo-item {
-  padding: 0 8px 0 60px;
-  width: 70%;
+  justify-content: space-between;
 }
 
-.is--completed {
+.todo__item {
+  /* padding: 0 8px 0 60px; */
+  align-items: flex-start;
+  display: inline-flex;
+  width: 100%;
+}
+
+.todo__item--check {
   text-decoration: line-through;
 }
 
-.todo-title {
+.todo__title {
   display: flex;
-  align-items: center;
-  color: rgb(95, 92, 92);
-  font-weight: bolder;
+  color: #505050;
+  font-weight: bold;
   font-size: 1.2em;
   cursor: pointer;
-  margin: 20px 0 20px -5px;
+  user-select: none;
+
 }
 
-.todo-title:hover {
-  color: rgb(44, 44, 44);
+.deleteTodo__wrapper {
+  font-size: 1.2em;
+  /* float: ;   */
 }
 
-/* hide default input checkbox */
-.todo-title input {
-  position: relative;
-  opacity: 0;
-}
-
-.checkmark {
-  border-radius: 25px;
-  background: #e0e0e0;
-  position: relative;
-  top: 0;
-  left: 0;
-  height: .8em;
-  width: .8em;
-  margin-right: 25px;
-  border: 1px solid #9c7ac5;
-}
-
-.todo-title input:checked ~ .checkmark {
-  background: #AF7EEB;
-  border-radius: 25px;
-  transition: 0.2s;
-  border: 1px solid #524d4d;
-}
-
-.checkmark:after {
-  content: "";
-  position: absolute;
+.delete__icon {
+  cursor: pointer;
   display: none;
 }
 
-.todo-title input:checked ~ .checkmark::after{
-    display: block;
-}
-
-/* adds checkmark after title */
-/* .todo-title .checkmark::after {
-    left: 0.32em;
-    top: 0.15em;
-    width: 0.25em;
-    height: 0.5em;
-    border: solid white;
-    border-width: 0 0.15em 0.15em 0;
-    transform: rotate(45deg);
-} */
-
-.action-container {
-    font-size: 20px;
-}
-
-.action {
-    padding-right: 10px;
-    display: none;
-    cursor: pointer;
-}
-
-.todo-completed {
-    display: block;
+.todo__item--delete {
+  display: block;
 }
 </style>

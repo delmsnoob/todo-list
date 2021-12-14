@@ -1,16 +1,28 @@
 <template>
   <main>
-    <div class="main__container">
-      <Header title="Website todo"/>
-      <!-- <AddTodo /> -->
-      <div class="main__body">
-        <Todos
-          v-bind:todos="todos"
-          v-on:delete-todo="deleteTodo"
-          v-on:add-todo="addTodo"
+    <div class="main__wrapper">
+      <div class="content__header">
+        <Header text="Website Todo"/>
+      </div>
+      <div class="body__wrapper">
+        <div v-show="showAddTodo">
+          <Todos
+            v-bind:todos="todos"
+            v-on:delete-todo="deleteTodo"
+          />
+        </div>
+        <div v-show="!showAddTodo">
+          <AddTodo />
+        </div>
+      </div>
+      <div class="btn__wrapper">
+        <ToggleAddTodo
+          @toggle-click="toggleShowAddTodo"
+          :text="showAddTodo ? 'New Task' : 'Close'" 
+          class="btn"
         />
       </div>
-    </div>
+      </div>
   </main>
 </template>
 
@@ -18,16 +30,19 @@
 import Header from './components/Header'
 import Todos from './components/Todos'
 import AddTodo from './components/AddTodo'
+import ToggleAddTodo from './components/ToggleAddTodo'
 
 export default {
   name: 'App',
   components: {
     Header,
     Todos,
-    AddTodo
+    AddTodo,
+    ToggleAddTodo,
   },
   data() {
     return {
+      showAddTodo: true,
       todos: [
         {
           id: 1,
@@ -49,26 +64,24 @@ export default {
           title: "Check color contrast",
           completed: null
         }
-      ]
+      ],
     }
   },
   methods: {
+    toggleShowAddTodo() {
+      this.showAddTodo = !this.showAddTodo
+    },
     deleteTodo(id) {
       if (confirm('Are you sure?')) {
         this.todos = this.todos.filter(todo => todo.id !== id)
       }
-    },
-    addTodo(id) {
-      console.log(asdasd)
     }
   }
 }
 </script>
 
 <style>
-
 body {
-  user-select: none;
   background: #E3E9FF;
   font-family: 'Open Sans';
   margin: auto;
@@ -79,17 +92,51 @@ main {
   height: 90vh;
   justify-content: center;
   align-items: center;
-  
 }
 
-.main__container {
-  margin: 10px;
+.main__wrapper {
   width: 500px;
+  margin: 10px;
 }
 
-.main__body {
+.body__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-align: left; */
   margin-top: 20px;
   background: #fff;
-  min-height: 105px;
+  min-height: 200px;
+  padding: 10px 0 30px 0;
+}
+
+.btn__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.btn {
+  font-family: 'Open Sans';
+  position: absolute;
+  font-weight: bold;
+  font-size: 1.2em;
+  width: 200px;
+  height: 60px;
+  color: #fff;
+  background: #af7eeb;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.51);
+  cursor: pointer;
+  }
+
+.btn:hover {
+  background: #c198eb;
+}
+
+.fas {
+  color: black;
 }
 </style>
