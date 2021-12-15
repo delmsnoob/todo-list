@@ -43,28 +43,28 @@ export default {
   data() {
     return {
       showAddTodo: true,
-      todos: [
-        {
-          id: 1,
-          title: "Styleguide creation",
-          completed: null
-        },
-        {
-          id: 2,
-          title: "Send wireframes",
-          completed: null
-        },
-        {
-          id: 3,
-          title: "Readability About page",
-          completed: null
-        },
-        {
-          id: 4,
-          title: "Check color contrast",
-          completed: null
-        }
-      ],
+      "todos": [
+    {
+      id: 1,
+      title: "Styleguide creation",
+      completed: true
+    },
+    {
+      id: 2,
+      title: "Send wireframes",
+      completed: true
+    },
+    {
+      id: 3,
+      title: "Readability About page",
+      completed: null
+    },
+    {
+      id: 4,
+      title: "Check color contrast",
+      completed: null
+    }
+  ]
     }
   },
   methods: {
@@ -75,6 +75,26 @@ export default {
       if (confirm('Are you sure?')) {
         this.todos = this.todos.filter(todo => todo.id !== id)
       }
+    },
+    addTodo() {
+
+    },
+    async fetchTodos() {
+      const res = await fetch('http://localhost:4000/todos')
+
+      const data = await res.json()
+
+      return data
+    },
+    async fetchTodo(id) {
+      const res = await fetch(`api/todos/${id}`)
+
+      const data = await res.json()
+
+      return data
+    },
+    async created() {
+      this.todos = await this.fetchTodos()
     }
   }
 }
@@ -95,19 +115,19 @@ main {
 }
 
 .main__wrapper {
-  width: 500px;
+  width: 31.25rem;
   margin: 10px;
 }
 
 .body__wrapper {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   /* text-align: left; */
   margin-top: 20px;
   background: #fff;
   min-height: 200px;
-  padding: 10px 0 30px 0;
+  padding: 40px 60px 40px 60px;
 }
 
 .btn__wrapper {

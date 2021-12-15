@@ -1,8 +1,10 @@
 <template>
     <div class="todo__wrapper">
       <div class="todo__item">
-        <label class="todo__title" v-bind:class="{'todo__item--check': todo.completed}">
-          <input type="checkbox" v-on:change="markTodo">
+        <label
+          class="todo__title"
+          v-bind:class="{'todo__title--check': todo.completed}">
+          <input type="checkbox"  v-bind:checked="todo.completed" v-on:change="markTodo">
           <div class="checkmark"></div>
           {{ todo.title }}
         </label>
@@ -21,7 +23,9 @@
 <script>
 export default {
   name: 'Todo',
-  props: ["todo"],
+  props: {
+    todo: Object
+  },
   methods: {
     markTodo() {
       this.todo.completed = !this.todo.completed
@@ -33,35 +37,42 @@ export default {
 <style scoped>
 .todo__wrapper {
   display: flex;
-  width: 100%;
   align-items: center;
-  justify-content: space-between;
+  width: 380px;
+  margin: 20px 0 25px 0;
+  /* justify-content: space-between; */
 }
 
 .todo__item {
-  /* padding: 0 8px 0 60px; */
   align-items: flex-start;
   display: inline-flex;
   width: 100%;
+  user-select: none;
 }
 
-.todo__item--check {
+.todo__title--check {
   text-decoration: line-through;
+}
+
+input[type="checkbox"]:checked {
+  
 }
 
 .todo__title {
   display: flex;
   color: #505050;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.3em;
   cursor: pointer;
-  user-select: none;
+}
 
+.todo__title:hover {
+  color: #161616;
 }
 
 .deleteTodo__wrapper {
-  font-size: 1.2em;
-  /* float: ;   */
+  font-size: 1.4em;
+  color: #505050;
 }
 
 .delete__icon {
