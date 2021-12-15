@@ -5,15 +5,17 @@
         <Header text="Website Todo"/>
       </div>
       <div class="body__wrapper">
-        <div v-show="showAddTodo">
+        <transition name="fade">
           <Todos
+            v-if="showAddTodo"
             v-bind:todos="todos"
             v-on:delete-todo="deleteTodo"
           />
-        </div>
-        <div v-show="!showAddTodo">
-          <AddTodo />
-        </div>
+          <AddTodo
+            v-if="!showAddTodo"
+            @add-todo="addTodo"
+          />
+        </transition>
       </div>
       <div class="btn__wrapper">
         <ToggleAddTodo
@@ -47,7 +49,7 @@ export default {
     {
       id: 1,
       title: "Styleguide creation",
-      completed: true
+      completed: false
     },
     {
       id: 2,
@@ -57,12 +59,12 @@ export default {
     {
       id: 3,
       title: "Readability About page",
-      completed: null
+      completed: false
     },
     {
       id: 4,
       title: "Check color contrast",
-      completed: null
+      completed: true
     }
   ]
     }
@@ -76,8 +78,8 @@ export default {
         this.todos = this.todos.filter(todo => todo.id !== id)
       }
     },
-    addTodo() {
-
+    addTodo(todo) {
+      this.todos = [...this.todos, todo]
     },
     async fetchTodos() {
       const res = await fetch('http://localhost:4000/todos')
@@ -109,9 +111,14 @@ body {
 
 main {
   display: flex;
-  height: 90vh;
   justify-content: center;
   align-items: center;
+  height: 90vh;
+  overflow: hidden;
+}
+
+button, input[type="text"] {
+  font-family: 'Open Sans';
 }
 
 .main__wrapper {
@@ -126,7 +133,7 @@ main {
   /* text-align: left; */
   margin-top: 20px;
   background: #fff;
-  min-height: 200px;
+  min-height: 150px;
   padding: 40px 60px 40px 60px;
 }
 
@@ -158,5 +165,13 @@ main {
 
 .fas {
   color: black;
+}
+
+.fade-enter-active, .fade-leve-active {
+  transition: opacity 1s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>

@@ -44,7 +44,6 @@ export default {
 }
 
 .todo__item {
-  align-items: flex-start;
   display: inline-flex;
   width: 100%;
   user-select: none;
@@ -52,10 +51,6 @@ export default {
 
 .todo__title--check {
   text-decoration: line-through;
-}
-
-input[type="checkbox"]:checked {
-  
 }
 
 .todo__title {
@@ -71,7 +66,7 @@ input[type="checkbox"]:checked {
 }
 
 .deleteTodo__wrapper {
-  font-size: 1.4em;
+  font-size: 1.3em;
   color: #505050;
 }
 
@@ -82,5 +77,7 @@ input[type="checkbox"]:checked {
 
 .todo__item--delete {
   display: block;
+  transition: .5s;
 }
 </style>
+CZ9V6Nte
