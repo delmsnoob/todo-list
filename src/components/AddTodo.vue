@@ -1,13 +1,15 @@
 <template>
-  <form @submit="onSubmit" class="addtodo__wrapper">
-    <div class="title__wrapper">
-      <input type="text" v-model="newTodo" placeholder="What's on your mind?">
-      <input type="checkbox" v-model="status" hidden>
-    </div>
-    <div class="btn__wrapper">
-      <button type="submit">Save</button>
-    </div>
-  </form>
+  <div class="addtodo__wrapper">
+    <form @submit="onSubmit">
+      <div class="title__wrapper">
+        <input type="text" v-model="newTodo" placeholder="What's on your mind?">
+        <input type="checkbox" v-model="status" hidden>
+      </div>
+      <div class="btn__wrapper">
+        <button type="submit">Save</button>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -44,9 +46,13 @@ export default {
 
 <style scoped>
 .addtodo__wrapper {
+  /* padding: 0 10px 0 10px; */
+  width: 100%;
+}
+
+form {
   display: flex;
-  width: 380px;
-  height: 100px;
+  width: 100%;
   justify-content: center;
   align-items: center;
 }
@@ -54,19 +60,20 @@ export default {
 .title__wrapper input[type="text"] {
   align-items: center;
   justify-content: center;
-  width: 280px;
+  width: 15rem;
   outline: none;
-  padding-left: 10px;
   height: 50px;
   border: 2px solid #af7eeb;
   border-radius: 10px;
   font-size: 1em;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .btn__wrapper {
   display: flex;
   margin-left: 10px;
-  width: 100%;
+  width: 8rem;
 }
 
 button {

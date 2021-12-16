@@ -24,5 +24,8 @@ export default {
 </script>
 
 <style scoped>
-
+.todos {
+  /* min-height: 300px; */
+  padding: 40px;
+}
 </style>

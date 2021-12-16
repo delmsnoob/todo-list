@@ -39,7 +39,7 @@ export default {
   display: flex;
   align-items: center;
   width: 330px;
-  margin: 20px 0 25px 0;
+  margin: 20px 0 20px 30px;
   /* justify-content: space-between; */
 }
 
@@ -57,7 +57,7 @@ export default {
   display: flex;
   color: #505050;
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1.2em;
   cursor: pointer;
 }
 
@@ -68,6 +68,7 @@ export default {
 .deleteTodo__wrapper {
   font-size: 1.3em;
   color: #505050;
+  margin-left: 5px;
 }
 
 .delete__icon {

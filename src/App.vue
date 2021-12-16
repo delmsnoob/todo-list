@@ -99,7 +99,6 @@ main {
   align-items: center;
   height: 90vh;
   overflow: hidden;
-  width: 100%;
 }
 
 button, input[type="text"] {
@@ -107,12 +106,8 @@ button, input[type="text"] {
 }
 
 .main__wrapper {
-  
-}
-
-.content__header {
-  display: center;
-  justify-content: center;
+  width: 31.25rem;
+  margin: 10px;
 }
 
 .body__wrapper {
@@ -123,7 +118,6 @@ button, input[type="text"] {
   margin-top: 20px;
   background: #fff;
   min-height: 150px;
-  padding: 40px 60px 40px 60px;
 }
 
 .btn__wrapper {
