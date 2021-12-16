@@ -38,7 +38,7 @@ export default {
 .todo__wrapper {
   display: flex;
   align-items: center;
-  width: 380px;
+  width: 330px;
   margin: 20px 0 25px 0;
   /* justify-content: space-between; */
 }
