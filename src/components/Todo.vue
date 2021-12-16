@@ -80,4 +80,3 @@ export default {
   transition: .5s;
 }
 </style>
-CZ9V6Nte

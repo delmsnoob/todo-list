@@ -79,25 +79,9 @@ export default {
       }
     },
     addTodo(todo) {
+      alert('Todo has been successfully added')
       this.todos = [...this.todos, todo]
     },
-    async fetchTodos() {
-      const res = await fetch('http://localhost:4000/todos')
-
-      const data = await res.json()
-
-      return data
-    },
-    async fetchTodo(id) {
-      const res = await fetch(`api/todos/${id}`)
-
-      const data = await res.json()
-
-      return data
-    },
-    async created() {
-      this.todos = await this.fetchTodos()
-    }
   }
 }
 </script>

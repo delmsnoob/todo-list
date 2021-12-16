@@ -24,7 +24,5 @@ export default {
 </script>
 
 <style scoped>
-.todos {
 
-}
 </style>
