@@ -3,8 +3,13 @@
       <div class="todo__item">
         <label
           class="todo__title"
-          v-bind:class="{'todo__title--check': todo.completed}">
-          <input type="checkbox"  v-bind:checked="todo.completed" v-on:change="markTodo">
+          :class="[todo.is_completed ? 'todo__title--check': '', 'todo__title' ]">
+          <input
+            type="checkbox"
+            @click="$emit('toggle-todo', todo.id)"
+            :checked="todo.is_completed"
+            v-on:change="toggleTodo"
+          >
           <div class="checkmark"></div>
           {{ todo.title }}
         </label>
@@ -12,7 +17,7 @@
       <div class="deleteTodo__wrapper">
         <i 
           @click="$emit('delete-todo', todo.id)"
-          v-bind:class="{'todo__item--delete': todo.completed}"
+          :class="{'todo__item--delete': todo.is_completed}"
           class="delete__icon far fa-trash-alt"
         >
         </i>
@@ -27,8 +32,8 @@ export default {
     todo: Object
   },
   methods: {
-    markTodo() {
-      this.todo.completed = !this.todo.completed
+    toggleTodo() {
+      this.todo.is_completed = !this.todo.is_completed
     }
   }
 }

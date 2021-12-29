@@ -10,6 +10,7 @@
             v-if="showAddTodo"
             v-bind:todos="todos"
             v-on:delete-todo="deleteTodo"
+            @toggle-todo="toggleTodo"
           />
           <AddTodo
             v-if="!showAddTodo"
@@ -45,43 +46,72 @@ export default {
   data() {
     return {
       showAddTodo: true,
-      "todos": [
-    {
-      id: 1,
-      title: "Styleguide creation",
-      completed: false
-    },
-    {
-      id: 2,
-      title: "Send wireframes",
-      completed: true
-    },
-    {
-      id: 3,
-      title: "Readability About page",
-      completed: false
-    },
-    {
-      id: 4,
-      title: "Check color contrast",
-      completed: true
-    }
-  ]
+      "todos": []
     }
   },
+  async created() {
+    this.todos = await this.fetchTodos()
+  },
   methods: {
+    async fetchTodos() {
+      const res = await fetch('api/todos')
+
+      const data = await res.json()
+
+      return data
+    },
+    async fetchTodo(id) {
+      const res = await fetch(`api/todos/${id}`)
+
+      const data = await res.json()
+
+      return data
+    },
     toggleShowAddTodo() {
       this.showAddTodo = !this.showAddTodo
     },
-    deleteTodo(id) {
+    async deleteTodo(id) {
       if (confirm('Are you sure?')) {
-        this.todos = this.todos.filter(todo => todo.id !== id)
+        const res = await fetch(`api/todos/${id}`, {
+          method: 'DELETE'
+        })
+
+        res.status === 200 ? (this.todos = this.todos.filter(todo => todo.id !== id)) : alert('Error deleting todo')
       }
     },
-    addTodo(todo) {
+    async addTodo(todo) {
+      const res = await fetch('api/todos', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(todo)
+      })
+
+      const data = await res.json()
+
       alert('Todo has been successfully added')
-      this.todos = [...this.todos, todo]
+      this.todos = [...this.todos, data]
     },
+    async toggleTodo(id) {
+      const todoToToggle = await this.fetchTodo(id)
+      const updateTodo = { ...todoToToggle, is_completed: !todoToToggle.is_completed }
+
+      const res = await fetch(`api/todos/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(updateTodo)
+      })
+
+      const data = await res.json()
+
+      return data
+      // data = this.data.map((data) => {
+      //   data.id === id ? { ...data, is_completed: data.is_completed } : todos
+      // })
+    }
   }
 }
 </script>
