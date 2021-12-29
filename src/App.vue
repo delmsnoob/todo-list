@@ -54,14 +54,14 @@ export default {
   },
   methods: {
     async fetchTodos() {
-      const res = await fetch('api/todos')
+      const res = await fetch('http://localhost:5000/todos')
 
       const data = await res.json()
 
       return data
     },
     async fetchTodo(id) {
-      const res = await fetch(`api/todos/${id}`)
+      const res = await fetch(`http://localhost/todos/${id}`)
 
       const data = await res.json()
 
@@ -72,7 +72,7 @@ export default {
     },
     async deleteTodo(id) {
       if (confirm('Are you sure?')) {
-        const res = await fetch(`api/todos/${id}`, {
+        const res = await fetch(`http://localhost/todos/${id}`, {
           method: 'DELETE'
         })
 
@@ -80,7 +80,7 @@ export default {
       }
     },
     async addTodo(todo) {
-      const res = await fetch('api/todos', {
+      const res = await fetch('http://localhost/todos', {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -97,7 +97,7 @@ export default {
       const todoToToggle = await this.fetchTodo(id)
       const updateTodo = { ...todoToToggle, is_completed: !todoToToggle.is_completed }
 
-      const res = await fetch(`api/todos/${id}`, {
+      const res = await fetch(`http://localhost/todos/${id}`, {
         method: 'PUT',
         headers: {
           'Content-type': 'application/json',
