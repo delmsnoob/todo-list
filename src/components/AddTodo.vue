@@ -32,7 +32,7 @@ export default {
 
       const newTodo = {
         title: this.newTodo,
-        completed: this.status
+        is_completed: this.status
       }
 
       this.$emit('add-todo', newTodo)
