@@ -2,6 +2,7 @@
   <div class="todos">
     <div v-bind:key="todo.id" v-for="todo in todos">
       <Todo
+        @toggle-todo="$emit('toggle-todo', todo.id)"
         :todo="todo"
         v-on:delete-todo="$emit('delete-todo', todo.id)"
       />
@@ -19,7 +20,8 @@ export default {
   },
   props: {
     todos: Array,
-  }
+  },
+  emits: ['toggle-todo', 'delete-todo']
 }
 </script>
 
