@@ -54,7 +54,7 @@ export default {
     return {
       title: 'Christian Simple TodoApp',
       meta: [
-        { name: 'description', content: 'Best Sports Toto 365 in 2022' },
+        { name: 'description', content: 'Simple Todo list app using Vue' },
         { name: 'keywords', content: 'todoapp,todolist,todo,todo-list,todos,create todo,how to create todolist,heroku' }
       ]
     }
