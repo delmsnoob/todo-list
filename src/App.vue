@@ -62,7 +62,8 @@ export default {
         { name: 'keywords', content: 'todo-list' },
         { name: 'keywords', content: 'todos' },
         { name: 'keywords', content: 'create todo' },
-        { name: 'keywords', content: 'how to create todolist app using vue' }
+        { name: 'keywords', content: 'how to create todolist app using vue' },
+        { name: 'keywords', content: 'delmsnoob' }
       ]
     }
   },
