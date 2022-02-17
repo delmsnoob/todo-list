@@ -52,7 +52,7 @@ export default {
 
   metaInfo () {
     return {
-      title: 'Christian Simple TodoApp',
+      title: 'Simple TodoApp using Vue',
       meta: [
         { vmid: 'todoapp', content: 'Christian TodoApp' },
         { name: 'description', content: 'Simple Todo list app using Vue' },
@@ -63,7 +63,13 @@ export default {
         { name: 'keywords', content: 'todos' },
         { name: 'keywords', content: 'create todo' },
         { name: 'keywords', content: 'how to create todolist app using vue' },
-        { name: 'keywords', content: 'delmsnoob' }
+        { name: 'keywords', content: 'delmsnoob' },
+        { property: 'og:type', content: "website" },
+        { property: 'og:title', content: "Simple TodoApp Using Vue" },
+        { property: 'og:description', content: "Simple Todo list app using Vue" },
+        { property: 'og:url', content: "https://christian-todoapp.netlify.app" },
+        { property: 'og:site_name', content: "Simple TodoApp Using Vue" },
+
       ]
     }
   },
