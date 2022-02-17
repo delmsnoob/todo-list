@@ -54,6 +54,7 @@ export default {
     return {
       title: 'Christian Simple TodoApp',
       meta: [
+        { vmid: 'todoapp', content: 'Christian TodoApp' },
         { name: 'description', content: 'Simple Todo list app using Vue' },
         { name: 'keywords', content: 'todoapp,todolist,todo,todo-list,todos,create todo,how to create todolist,heroku' }
       ]
