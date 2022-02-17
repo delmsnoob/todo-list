@@ -140,6 +140,7 @@ export default {
         { name: 'todoapp', vmid: 'todoapp', content: 'Simple TodoApp using Vue' },
         { name: 'description', content: 'Simple Todo list app using Vue. Add new todo and mark it when finished. You can delete a todo when you marked it as finished. Manage your daily tasks effectively' },
         { name: 'keywords', content: keywords },
+        { name: 'google-site-verification', content: TqPrL8LFuVWrwVh7l1gXf_g4_H7WwC0Jb0LfpEpU_DM },
         { property: 'og:type', content: "website" },
         { property: 'og:title', content: "Simple TodoApp Using Vue" },
         { property: 'og:description', content: "Simple Todo list app using Vue" },
