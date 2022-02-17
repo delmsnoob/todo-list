@@ -56,7 +56,13 @@ export default {
       meta: [
         { vmid: 'todoapp', content: 'Christian TodoApp' },
         { name: 'description', content: 'Simple Todo list app using Vue' },
-        { name: 'keywords', content: 'todoapp,todolist,todo,todo-list,todos,create todo,how to create todolist,heroku' }
+        { name: 'keywords', content: 'todoapp' },
+        { name: 'keywords', content: 'todolist' },
+        { name: 'keywords', content: 'todo' },
+        { name: 'keywords', content: 'todo-list' },
+        { name: 'keywords', content: 'todos' },
+        { name: 'keywords', content: 'create todo' },
+        { name: 'keywords', content: 'how to create todolist app using vue' }
       ]
     }
   },
