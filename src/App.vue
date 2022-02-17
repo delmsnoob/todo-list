@@ -52,10 +52,10 @@ export default {
 
   metaInfo () {
     return {
-      title: 'Sports Toto 645',
+      title: 'Christian Simple TodoApp',
       meta: [
         { name: 'description', content: 'Best Sports Toto 365 in 2022' },
-        { name: 'keywords', content: 'todoapp,todolist,todo,todo-list,todos,create todo,how to create todolist' }
+        { name: 'keywords', content: 'todoapp,todolist,todo,todo-list,todos,create todo,how to create todolist,heroku' }
       ]
     }
   },
