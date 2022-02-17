@@ -49,6 +49,17 @@ export default {
       "todos": []
     }
   },
+
+  metaInfo () {
+    return {
+      title: 'Sports Toto 645',
+      meta: [
+        { name: 'description', content: 'Best Sports Toto 365 in 2022' },
+        { name: 'keywords', content: 'todoapp,todolist,todo,todo-list,todos,create todo,how to create todolist' }
+      ]
+    }
+  },
+
   async created() {
     this.todos = await this.fetchTodos()
   },

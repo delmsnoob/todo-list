@@ -29,6 +29,11 @@
       "title": "Study Semrush (SEO)",
       "is_completed": true,
       "id": "mX-flOP"
+    },
+    {
+      "title": "Add vue-meta",
+      "is_completed": false,
+      "id": "D7YAv2e"
     }
   ]
 }
